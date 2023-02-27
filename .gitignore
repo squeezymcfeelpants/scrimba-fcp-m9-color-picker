@@ -1,0 +1,11 @@
+# dumb macos
+.DS_Store
+
+# NEVER COMMIT THIS
+.env
+
+# node
+/node_modules/**/*
+
+# vscode config
+.vscode/**/*

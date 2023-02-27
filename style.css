@@ -1,0 +1,242 @@
+:root {
+	--size: 200;
+	--app-bg-color: #eee;
+}
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 400;
+	background-color: #333;
+	user-select: none;
+}
+
+select,
+option,
+button {
+	font-family: 'PT Sans', sans-serif;
+}
+
+/* utility */
+.hide {
+	display: none;
+}
+
+.main-container {
+	margin: auto;
+	padding: 1em;
+	border-radius: 1em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	background-color: var(--app-bg-color);
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.color-control {
+	visibility: hidden;
+}
+
+.color-control-label,
+.btn-control,
+.mode-control {
+	height: 2rem;
+	border: 2px solid #888;
+	border-radius: 50vh;
+	font-size: 18px;
+	font-weight: 700;
+	color: #544;
+	cursor: pointer;
+	transition: all 150ms ease;
+}
+
+.color-control-label,
+.btn-control {
+	width: 16%;
+}
+
+.mode-control {
+	width: 60%;
+	padding-left: 1em;
+	background-color: transparent;
+}
+
+.btn-control {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mode-control:hover,
+.btn-control:hover {
+	background-color: #aaa;
+}
+
+.msg-container {
+	border: 2px solid #888;
+	border-radius: 50vh;
+	height: 2.5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.message {
+	font-size: 17px;
+	font-weight: 700;
+	color: #544;
+}
+
+.wedge-container {
+	width: calc(var(--size) * 2px);
+	height: calc(var(--size) * 2px);
+	position: relative;
+	transition: all 250ms ease;
+}
+
+.wedge-container.ghost {
+	opacity: 0;
+}
+
+.wedge-piece {
+	--color: #888;
+	--anim-time: 1s;
+	width: calc(var(--size) * 1px);
+	height: calc(var(--size) * 1px);
+	position: absolute;
+	transform-origin: bottom right;
+}
+
+.wedge-svg {
+	fill: var(--color);
+}
+
+.wedge-piece[data-id="0"].anim {
+	transform: rotate(0deg);
+}
+
+.wedge-piece[data-id="1"].anim {
+	animation: var(--anim-time) forwards rotate1 ease-in-out;
+}
+
+.wedge-piece[data-id="2"].anim {
+	animation: var(--anim-time) forwards rotate2 ease-in-out;
+}
+
+.wedge-piece[data-id="3"].anim {
+	animation: var(--anim-time) forwards rotate3 ease-in-out;
+}
+
+.wedge-piece[data-id="4"].anim {
+	animation: var(--anim-time) forwards rotate4 ease-in-out;
+}
+
+.wedge-label {
+	padding: 2px 6px;
+	border: 2px solid #2228;
+	border-radius: 6px;
+	background-color: #ddd;
+	color: #222;
+	position: absolute;
+	bottom: 32%;
+	left: 28%;
+	cursor: copy;
+	transition: all 200ms ease;
+}
+
+.wedge-label.ghost {
+	opacity: 0;
+}
+
+.wedge-label[data-id="1"] {
+	transform: rotate(-72deg);
+}
+
+.wedge-label[data-id="2"] {
+	transform: rotate(-144deg);
+}
+
+.wedge-label[data-id="3"] {
+	transform: rotate(-216deg);
+}
+
+.wedge-label[data-id="4"] {
+	transform: rotate(-288deg);
+}
+
+.hub {
+	--hub-radius: 40;
+	width: calc(var(--hub-radius) * 2px);
+	height: calc(var(--hub-radius) * 2px);
+	/* border: 1px solid #2226; */
+	border-radius: 50%;
+	background-color: var(--app-bg-color);
+	position: absolute;
+	left: calc((var(--size) - var(--hub-radius)) * 1px);
+	top: calc((var(--size) - var(--hub-radius)) * 1px);
+}
+
+/**/
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotate1 {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(72deg);
+	}
+}
+
+@keyframes rotate2 {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(144deg);
+	}
+}
+
+@keyframes rotate3 {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(216deg);
+	}
+}
+
+@keyframes rotate4 {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(288deg);
+	}
+}
+
+
